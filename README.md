@@ -2,7 +2,7 @@
 
 Team Name
 Project Title:
-Project Repo:
+Project Repo: ScratchyPirate/Cpts-322-Project
 Team Members:
 Name              ID          email                  contact
 John Sbur         11663921    john.sbur@wsu.edu      (yes)
