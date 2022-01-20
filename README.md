@@ -2,7 +2,7 @@
 
 Team Name: iClicker-3J1D
 Project Title: Improved iClicker Application
-Project Repo: ScratchyPirate/Cpts-322-Project
+Project Repo: https://github.com/ScratchyPirate/Cpts-322-Project
 Team Members:
 Name              ID          email                  contact
 John Sbur         11663921    john.sbur@wsu.edu      (yes)
