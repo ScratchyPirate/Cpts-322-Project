@@ -1,7 +1,7 @@
 # Cpts-322-Project
 
-Team Name
-Project Title:
+Team Name: iClicker-3J1D
+Project Title: Improved iClicker Application
 Project Repo: ScratchyPirate/Cpts-322-Project
 Team Members:
 Name              ID          email                  contact
