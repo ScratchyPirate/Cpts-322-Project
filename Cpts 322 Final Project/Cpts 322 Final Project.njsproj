@@ -28,9 +28,51 @@
     <DebugSymbols>true</DebugSymbols>
   </PropertyGroup>
   <ItemGroup>
+    <Content Include="Admin.js">
+      <SubType>Code</SubType>
+    </Content>
+    <Content Include="Classroom.js">
+      <SubType>Code</SubType>
+    </Content>
+    <Content Include="Course.js">
+      <SubType>Code</SubType>
+    </Content>
+    <Content Include="GeneralUser.js">
+      <SubType>Code</SubType>
+    </Content>
+    <Content Include="LinkedList.js">
+      <SubType>Code</SubType>
+    </Content>
+    <Content Include="Poll.js">
+      <SubType>Code</SubType>
+    </Content>
+    <Content Include="Question.js">
+      <SubType>Code</SubType>
+    </Content>
+    <Content Include="QuestionSet.js">
+      <SubType>Code</SubType>
+    </Content>
+    <Content Include="Quiz.js">
+      <SubType>Code</SubType>
+    </Content>
+    <Content Include="RegisteredUser.js">
+      <SubType>Code</SubType>
+    </Content>
     <Content Include="server.js" />
     <Content Include="package.json" />
     <Content Include="README.md" />
+    <Content Include="Student.js">
+      <SubType>Code</SubType>
+    </Content>
+    <Content Include="Teacher.js">
+      <SubType>Code</SubType>
+    </Content>
+    <Content Include="Trend.js">
+      <SubType>Code</SubType>
+    </Content>
+    <Content Include="UserInterface.js">
+      <SubType>Code</SubType>
+    </Content>
   </ItemGroup>
   <Import Project="$(VSToolsPath)\Node.js Tools\Microsoft.NodejsToolsV2.targets" />
   <ProjectExtensions>
