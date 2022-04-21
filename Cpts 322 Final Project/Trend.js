@@ -138,7 +138,7 @@ class Trend extends React.Component{
     // Default constructor
     constructor() {
         // Set up graph data
-        // Line
+        // Line 
         this.lineGraphName = new String();
         this.lineGraphLabels = new Array();
         this.lineData = {
