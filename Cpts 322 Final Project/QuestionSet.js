@@ -3,7 +3,7 @@ import {Question} from './Question.js'
 // import Question from './Question.js'
 
 
-// MAIN CLASS SECTION:
+// MAIN ABSTRACT CLASS SECTION:
 class QuestionSet {
 
     // CONSTRUCTOR [0 args] SECTION:
