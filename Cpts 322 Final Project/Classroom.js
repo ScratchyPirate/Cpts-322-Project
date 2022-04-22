@@ -4,23 +4,30 @@ import {LinkedList} from './LinkedList.js'
 import {Course} from './Course.js'
 
 class Classroom extends List, Course, Trends {
-
+    //initiate everything null or as new class objects
     constructor() {
         this.teacher = null;
-        this.courseList = null;
+        this.courseList = new LinkedList<Course>();
         this.name = 'default';
-        this.classrooomTrend = null;
+        this.classrooomTrend = new Trend();
+    }
+    //initiate variable with var inputs
+    constructor(newTeacher, newCourseList, newName, newClassroomTrend) {
+        this.teacher = newTeacher;
+        this.courseList = new LinkedList<Course>(newCourseList);
+        this.name = newName;
+        this.classrooomTrend = new Trend<Classroom>(newClassroomTrend);
     }
 
     SetName(newName) {
-        if(newName == null)
+        if(newName == null) //checking if the input var newName is null if so return
             return;
-        else if(typeof newName === 'string') {
+        else if(typeof newName === 'string') { //checking if the input var newName is string before assigning to name
             this.name = newName;
             return;   
         }
         else{
-            return;
+            return; //if the input is not null and is not type string
         }
     }
 
@@ -29,7 +36,10 @@ class Classroom extends List, Course, Trends {
     }
 
     SetName(newName) {
-        if (typeof newName === 'string')
+        if(newName == null){
+            return;
+        }
+        if (typeof newName === 'string') //checking if the input var newName is a string
             this.name = newName;
         return;
     }
@@ -44,13 +54,17 @@ class Classroom extends List, Course, Trends {
 
         //If the input var is a class Course type then append to the list of courses no need to assign the var in the class type
         //Checking if the data input is class object from Course
-        if(typeof newCourse === 'object')
+        if(typeof newCourse === 'object') {
             this.courseList.Append(newCourse);
+            return;
+        }
+        return;
+        
     }
 
     RemoveCourse(cName) {
         var nextHolder = this.courseList.GetFirst().next;
-        if(this.courseList.GetFirst().courseName == cName) {
+        if(this.courseList.GetFirst().courseName == cName) { //If the Course to be removed is the root node
             delete(root);
             root = nextHolder;
             return;
@@ -77,11 +91,13 @@ class Classroom extends List, Course, Trends {
     }
 
     GetClassroomTrend() {
-        return this.classrooomTrend = Trend.GetTable();
+        return this.classrooomTrend.GetTable();
     }
 
     UpdateClassroomTrend() {
         this.classrooomTrend = Trend.UpdateTable(this.courseList);
+        this.classrooomTrend = Trend.UpdateChart(this.courseList);
+        this.classrooomTrend = Trend.UpdateGraph(this.courseList);
         return;
     }
 }
