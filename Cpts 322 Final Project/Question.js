@@ -50,11 +50,6 @@ class Question extends Trends{
 
     }
 
-    //
-    // Sections complete:
-    // PART2: X, F, X, X, X, X, X, X, 9, 10
-    //
-
     // GET POINTS SECTION:
     GetPoints() {
 
