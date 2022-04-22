@@ -61,7 +61,7 @@ import { Bar } from 'react-chartjs-2';
 import ReactDOM from "react-dom";
 
 // Super class for different types of trends.
-class Trend extends React.Component{
+export class Trend extends React.Component{
 
     /// Properties
     // General graph variables used in chart.js
@@ -79,43 +79,33 @@ class Trend extends React.Component{
     lineGraphName = '';
 
     // Pie chart
-    pieChartLabels = [];
+    pieChartLabels = ['DefaultLabel'];
     pieChartData = [];
     pieChartName = '';
 
+    // Bar graph
+    barGraphLabels = ['DefaultLabel'];
+    barGraphData = [];
+    barGraphName = '';
+
     // Constructor for trend. Initializes elements of each chart
-    constructor(newlinelabels, newlinedata,newlinename, newpielabels, newpiedata, newpiename) {
+    constructor(newlinelabels, newlinedata,newlinename, newpielabels, newpiedata, newpiename, newbarlabels, newbardata, newbarname) {
 
         // Set up graph data
         // Line
         this.lineGraphName = new String();
         this.lineGraphLabels = new Array();
-        this.lineData = {
-            labels: lineGraphLabels,
-            datasets: [{
-                label: 'Default Dataset',
-                data: [0],
-                fill: false,
-                borderColor: 'rgb(75, 192, 192)',
-                tension: 0.1
-            }]
-        };
+        this.lineData = {};
 
         // Pie
         this.pieChartName = new String();
         this.pieChartLabels = new Array();
-        this.pieChartData = {
-            datasets: [{
-                data: [10, 10, 10]
-            }],
+        this.pieChartData = {};
 
-            // These labels appear in the legend and in the tooltips when hovering different arcs
-            labels: [
-                'Red',
-                'Yellow',
-                'Blue'
-            ]
-        };
+        // Bar
+        this.barGraphName = new String();
+        this.barGraphLabels = new Array();
+        this.barGraphData = {};
 
         // Set data of graph to imported data
         this.lineGraphLabels = newlinelabels;
@@ -141,32 +131,12 @@ class Trend extends React.Component{
         // Line
         this.lineGraphName = new String();
         this.lineGraphLabels = new Array();
-        this.lineData = {
-            labels: lineGraphLabels,
-            datasets: [{
-                label: 'Default Dataset',
-                data: [0],
-                fill: false,
-                borderColor: 'rgb(75, 192, 192)',
-                tension: 0.1
-            }]
-        };
+        this.lineData = {};
 
         // Pie
         this.pieChartName = new String();
         this.pieChartLabels = new Array();
-        this.pieChartData = {
-            datasets: [{
-                data: [10, 10, 10]
-            }],
-
-            // These labels appear in the legend and in the tooltips when hovering different arcs
-            labels: [
-                'Red',
-                'Yellow',
-                'Blue'
-            ]
-        };
+        this.pieChartData = {};
 
         // Set data of graph to imported data
         this.lineGraphLabels = newlinelabels;
@@ -180,43 +150,74 @@ class Trend extends React.Component{
 
     // Setters and Getters
     // Width
-    getWidth() {
+    GetWidth() {
         return this.width;
     }
-    setWidth(newWidth) {
+    SetWidth(newWidth) {
         if (typeof(newWidth) == "number") {
             this.width = newWidth;
         }
     }
 
     // Height
-    getHeight() {
+    GetHeight() {
         return this.width;
     }
-    setHeight(newHeight) {
+    SetHeight(newHeight) {
         if (typeof (newHeight) == "number") {
             this.height = newHeight;
         }
     }
 
     // Ctx (Context)
-    getCtx() {
+    GetCtx() {
         return this.ctx;
     }
-    setCtx(newCtx) {
+    SetCtx(newCtx) {
         if (typeof (newCtx) == "string") {
             this.ctx = newCtx;
         }
     }
 
     // Type
-    getCurrentType() {
+    GetCurrentType() {
         return config.type;
     }
-    setCurrentType(newType) {
+    SetCurrentType(newType) {
         if (typeof (newType) == "string") {
             this.config.type = newType;
         }
+    }
+
+    // Create functions
+    CreatePieChart(newlabels, newdata, newname) {
+        this.pieChartData = newdata;
+        this.pieChartLabels = newlabels;
+        this.pieChartName = newname;
+    }
+    CreateLineGraph(newlabels, newdata, newname) {
+        this.lineData = newdata;
+        this.lineGraphLabels = newlabels;
+        this.lineGraphName = newname;
+    }
+    CreateBarGraph(newlabels, newdata, newname) {
+        this.barGraphData = newdata;
+        this.barGraphLabels = newlabels;
+        this.barGraphName = newname;
+    }
+
+    // Update functions
+    UpdatePieChart(newpielabels, newpiedata) {
+        this.pieChartLabels = newpielabels;
+        this.pieChartData = newpiedata;
+    }
+    UpdateLineGraph(newgraphlabels, newgraphdata) {
+        this.lineGraphLabels = newgraphlabels;
+        this.lineData = newgraphdata;
+    }
+    UpdateBarGraph(newbarlabels, newbardata) {
+        this.barGraphLabels = newbarlabels;
+        this.barGraphData = newbardata;
     }
 
     // Render
@@ -267,6 +268,7 @@ class Trend extends React.Component{
                 </div>);
         }
 
+        // If the string inputted was "barchart", render this trend's barchart
         else if (graphType == 'barchart') {
             return (
                 <div>
@@ -282,6 +284,10 @@ class Trend extends React.Component{
                     />
                 </div>);
         }
-        
+
+        // Catch case which just displays an error message.
+        else {
+            return (<div>Error</div>);
+        }
     }
 }
