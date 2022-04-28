@@ -60,6 +60,26 @@ import { Pie, Doughnut } from 'react-chartjs-2';
 import { Bar } from 'react-chartjs-2';
 import ReactDOM from "react-dom";
 
+// Dummy data used for testing
+
+const data = {
+    labels: ['Red', 'Orange', 'Blue'],
+    // datasets is an array of objects where each object represents a set of data to display corresponding to the labels above. for brevity, we'll keep it at one object
+    datasets: [
+        {
+            label: 'Popularity of colours'
+              data: [55, 23, 96],
+            // you can set indiviual colors for each bar
+            backgroundColor: [
+                'rgba(255, 255, 255, 0.6)'
+                'rgba(255, 255, 255, 0.6)'
+                'rgba(255, 255, 255, 0.6)'
+            ],
+            borderWidth: 1,
+        }
+    ]
+}
+
 // Super class for different types of trends.
 export class Trend extends React.Component{
 
@@ -235,17 +255,26 @@ export class Trend extends React.Component{
         if (graphType == 'linegraph') {
             this.config.type = 'line';
             this.ctx = 'Line Graph';
+            };
             return (
                 <div>
                     <canvas id={this.ctx} width={this.width} height={this.height}></canvas>
                     <Line
-
-
-
-
-
-
-
+                        data={this.lineData}
+                        label={this.lineGraphLabels}
+                        Title={this.lineGraphName}
+                        options={{
+                            plugins: {
+                                title: {
+                                    display: true,
+                                    text: "Trend Line Graph"
+                                },
+                                legend: {
+                                    display: true,
+                                    position: "bottom"
+                                }
+                            }
+                        }}
                     />
                 </div>
             );
@@ -253,37 +282,128 @@ export class Trend extends React.Component{
 
         // If the string inputted was "piechart", render this trend's piechart
         else if (graphType == 'piechart') {
+            this.config.type = 'pie';
+            this.ctx = 'Pie Chart';
             return (
                 <div>
                     <canvas id={this.ctx} width={this.width} height={this.height}></canvas>
                     <Pie
-
-
-
-
-
-
-
+                        data={this.pieChartData}
+                        label={this.pieChartLabels}
+                        Title={this.pieChartName}
+                        options={{
+                            plugins: {
+                                title: {
+                                    display: true,
+                                    text: "Trend Pie Chart"
+                                },
+                                legend: {
+                                    display: true,
+                                    position: "bottom"
+                                }
+                            }
+                        }}
                     />
                 </div>);
         }
 
         // If the string inputted was "barchart", render this trend's barchart
-        else if (graphType == 'barchart') {
+        else if (graphType == 'bargraph') {
             return (
                 <div>
                     <canvas id={this.ctx} width={this.width} height={this.height}></canvas>
                     <Bar
-
-
-
-
-
-
-
+                        data={this.barGraphData}
+                        label={this.barGraphLabels}
+                        Title={this.barGraphName}
+                        options={{
+                            plugins: {
+                                title: {
+                                    display: true,
+                                    text: "Trend Bar Graph"
+                                },
+                                legend: {
+                                    display: true,
+                                    position: "bottom"
+                                }
+                            }
+                        }}
                     />
                 </div>);
         }
+
+        else if (graphType == 'dummyline') {
+            return (
+                <div>
+                    <Line
+                        datasetIdKey='id'
+                        data={{
+                            labels: ['Jun', 'Jul', 'Aug'],
+                            datasets: [
+                                {
+                                    id: 1,
+                                    label: '',
+                                    data: [5, 6, 7],
+                                },
+                                {
+                                    id: 2,
+                                    label: '',
+                                    data: [3, 2, 1],
+                                },
+                            ],
+                        }}
+                    />
+                </div>);
+        }
+
+        else if (graphType == 'dummypie') {
+            return (
+                <div>
+                    <Line
+                        datasetIdKey='id'
+                        data={{
+                            labels: ['Jun', 'Jul', 'Aug'],
+                            datasets: [
+                                {
+                                    id: 1,
+                                    label: '',
+                                    data: [5, 6, 7],
+                                },
+                                {
+                                    id: 2,
+                                    label: '',
+                                    data: [3, 2, 1],
+                                },
+                            ],
+                        }}
+                    />
+                </div>);
+        }
+
+        else if (graphType == 'dummybar') {
+            return (
+                <div>
+                    <Line
+                        datasetIdKey='id'
+                        data={{
+                            labels: ['Jun', 'Jul', 'Aug'],
+                            datasets: [
+                                {
+                                    id: 1,
+                                    label: '',
+                                    data: [5, 6, 7],
+                                },
+                                {
+                                    id: 2,
+                                    label: '',
+                                    data: [3, 2, 1],
+                                },
+                            ],
+                        }}
+                    />
+                </div>);
+        }
+
 
         // Catch case which just displays an error message.
         else {
