@@ -255,7 +255,6 @@ export class Trend extends React.Component{
         if (graphType == 'linegraph') {
             this.config.type = 'line';
             this.ctx = 'Line Graph';
-            };
             return (
                 <div>
                     <canvas id={this.ctx} width={this.width} height={this.height}></canvas>
@@ -307,7 +306,7 @@ export class Trend extends React.Component{
                 </div>);
         }
 
-        // If the string inputted was "barchart", render this trend's barchart
+        // If the string inputted was "barchart", render this trend's bargraph
         else if (graphType == 'bargraph') {
             return (
                 <div>
@@ -332,6 +331,7 @@ export class Trend extends React.Component{
                 </div>);
         }
 
+        // test render line graph
         else if (graphType == 'dummyline') {
             return (
                 <div>
@@ -356,6 +356,7 @@ export class Trend extends React.Component{
                 </div>);
         }
 
+        // test render piechart
         else if (graphType == 'dummypie') {
             return (
                 <div>
@@ -380,6 +381,7 @@ export class Trend extends React.Component{
                 </div>);
         }
 
+        // test render bargraph
         else if (graphType == 'dummybar') {
             return (
                 <div>
