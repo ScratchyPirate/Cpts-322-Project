@@ -61,25 +61,48 @@ import { Bar } from 'react-chartjs-2';
 import ReactDOM from "react-dom";
 
 // Dummy data used for testing
-
-const data = {
-    labels: ['Red', 'Orange', 'Blue'],
-    // datasets is an array of objects where each object represents a set of data to display corresponding to the labels above. for brevity, we'll keep it at one object
+const testpiedata = {
+    labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
     datasets: [
         {
-            label: 'Popularity of colours'
-              data: [55, 23, 96],
-            // you can set indiviual colors for each bar
+            label: '# of Votes',
+            data: [12, 19, 3, 5, 2, 3],
             backgroundColor: [
-                'rgba(255, 255, 255, 0.6)'
-                'rgba(255, 255, 255, 0.6)'
-                'rgba(255, 255, 255, 0.6)'
+                'rgba(255, 99, 132, 0.2)',
+                'rgba(54, 162, 235, 0.2)',
+                'rgba(255, 206, 86, 0.2)',
+                'rgba(75, 192, 192, 0.2)',
+                'rgba(153, 102, 255, 0.2)',
+                'rgba(255, 159, 64, 0.2)',
+            ],
+            borderColor: [
+                'rgba(255, 99, 132, 1)',
+                'rgba(54, 162, 235, 1)',
+                'rgba(255, 206, 86, 1)',
+                'rgba(75, 192, 192, 1)',
+                'rgba(153, 102, 255, 1)',
+                'rgba(255, 159, 64, 1)',
             ],
             borderWidth: 1,
-        }
-    ]
-}
-
+        },
+    ],
+};
+const testlabels = ['January', 'February', 'March', 'April', 'May', 'June', 'July'];
+const testdata = {
+    testlabels,
+    datasets: [
+        {
+            label: 'Dataset 1',
+            data: testlabels.map(() => ['3', '5', '7', '9', '8', '11', '12']),
+            backgroundColor: 'rgba(255, 99, 132, 0.5)',
+        },
+        {
+            label: 'Dataset 2',
+            data: testlabels.map(() => ['3', '5', '7', '9', '8', '11', '12']),
+            backgroundColor: 'rgba(53, 162, 235, 0.5)',
+        },
+    ],
+};
 // Super class for different types of trends.
 export class Trend extends React.Component{
 
@@ -287,9 +310,9 @@ export class Trend extends React.Component{
                 <div>
                     <canvas id={this.ctx} width={this.width} height={this.height}></canvas>
                     <Pie
-                        data={this.pieChartData}
-                        label={this.pieChartLabels}
-                        Title={this.pieChartName}
+                        data={this.lineData}
+                        label={this.lineGraphLabels}
+                        Title={this.lineGraphName}
                         options={{
                             plugins: {
                                 title: {
@@ -335,24 +358,8 @@ export class Trend extends React.Component{
         else if (graphType == 'dummyline') {
             return (
                 <div>
-                    <Line
-                        datasetIdKey='id'
-                        data={{
-                            labels: ['Jun', 'Jul', 'Aug'],
-                            datasets: [
-                                {
-                                    id: 1,
-                                    label: '',
-                                    data: [5, 6, 7],
-                                },
-                                {
-                                    id: 2,
-                                    label: '',
-                                    data: [3, 2, 1],
-                                },
-                            ],
-                        }}
-                    />
+                    <canvas id={this.ctx} width={this.width} height={this.height}></canvas>
+                    <Line data={testdata} />
                 </div>);
         }
 
@@ -360,24 +367,8 @@ export class Trend extends React.Component{
         else if (graphType == 'dummypie') {
             return (
                 <div>
-                    <Line
-                        datasetIdKey='id'
-                        data={{
-                            labels: ['Jun', 'Jul', 'Aug'],
-                            datasets: [
-                                {
-                                    id: 1,
-                                    label: '',
-                                    data: [5, 6, 7],
-                                },
-                                {
-                                    id: 2,
-                                    label: '',
-                                    data: [3, 2, 1],
-                                },
-                            ],
-                        }}
-                    />
+                    <canvas id={this.ctx} width={this.width} height={this.height}></canvas>
+                    <Pie data={testpiedata} />
                 </div>);
         }
 
@@ -385,24 +376,8 @@ export class Trend extends React.Component{
         else if (graphType == 'dummybar') {
             return (
                 <div>
-                    <Line
-                        datasetIdKey='id'
-                        data={{
-                            labels: ['Jun', 'Jul', 'Aug'],
-                            datasets: [
-                                {
-                                    id: 1,
-                                    label: '',
-                                    data: [5, 6, 7],
-                                },
-                                {
-                                    id: 2,
-                                    label: '',
-                                    data: [3, 2, 1],
-                                },
-                            ],
-                        }}
-                    />
+                    <canvas id={this.ctx} width={this.width} height={this.height}></canvas>
+                    <Bar data={testdata} />
                 </div>);
         }
 
