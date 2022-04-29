@@ -1,28 +1,29 @@
-//Need to import Trend, Course, teacher?,
+//Need to import Trend, Course, owner?,
 import {Trend} from './Trend.js'
 import {LinkedList} from './LinkedList.js'
 import {Course} from './Course.js'
+import {Teacher} from './Teacher.js'
 
-class Classroom extends List, Course, Trends {
+class Classroom extends LinkedList, Course, Trend, Teacher {
     //initiate everything null or as new class objects
     constructor() {
-        this.teacher = null;
-        this.courseList = new LinkedList<Course>();
-        this.name = 'default';
-        this.classrooomTrend = new Trend();
+        this.owner = new Teacher();
+        this.courseList = new LinkedList<Course>(null);
+        this.name = new String('default');
+        this.classrooomTrend = new Trend<Classroom>(null);
     }
     //initiate variable with var inputs
-    constructor(newTeacher, newCourseList, newName, newClassroomTrend) {
-        this.teacher = newTeacher;
+    constructor(newOwner, newCourseList, newName, newClassroomTrend) {
+        this.owner = new Teacher();
+        this.owner = newOwner;
         this.courseList = new LinkedList<Course>(newCourseList);
+        this.name = new String();
         this.name = newName;
-        this.classrooomTrend = new Trend<Classroom>(newClassroomTrend);
+        this.classrooomTrend = new Trend<Classroom>(newCourseList, newClassroomTrend, this.name, this.courseList, newClassroomTrend, this.name, this.courseList, newClassroomTrend, this.name);
     }
 
     SetName(newName) {
-        if(newName == null) //checking if the input var newName is null if so return
-            return;
-        else if(typeof newName === 'string') { //checking if the input var newName is string before assigning to name
+        if(typeof newName === 'string' && !(newName == null)) { //checking if the input var newName is string before assigning to name
             this.name = newName;
             return;   
         }
@@ -35,22 +36,22 @@ class Classroom extends List, Course, Trends {
         return this.name;
     }
 
-    SetName(newName) {
-        if(newName == null){
+    SetOwner(newOwner) {
+        if(newOwner == null){
             return;
         }
-        if (typeof newName === 'string') //checking if the input var newName is a string
-            this.name = newName;
+        if (typeof newOwner === 'string') //checking if the input var newName is a string
+            this.name = newOwner;
         return;
     }
 
     GetOwner() {
-        return this.teacher;
+        return this.owner;
     }
 
     AddCourse(newCourse) {
         //Have to add a new Node to the List of Courses
-        //const newClass = Classroom();
+        // const newClass = new Classroom();
 
         //If the input var is a class Course type then append to the list of courses no need to assign the var in the class type
         //Checking if the data input is class object from Course
@@ -95,9 +96,9 @@ class Classroom extends List, Course, Trends {
     }
 
     UpdateClassroomTrend() {
-        this.classrooomTrend = Trend.UpdateTable(this.courseList);
-        this.classrooomTrend = Trend.UpdateChart(this.courseList);
-        this.classrooomTrend = Trend.UpdateGraph(this.courseList);
+        this.classrooomTrend.UpdateTable(this.courseList, this.ClassroomTrend, this.name);
+        this.classrooomTrend.UpdateChart(this.courseList, this.ClassroomTrend, this.name);
+        this.classrooomTrend.UpdateGraph(this.courseList, this.ClassroomTrend, this.name);
         return;
     }
 }
