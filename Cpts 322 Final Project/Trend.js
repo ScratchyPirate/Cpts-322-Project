@@ -232,6 +232,7 @@ export class Trend extends React.Component{
         }
     }
 
+    // hello
     // Create functions
     CreatePieChart(newlabels, newdata, newname) {
         this.pieChartData = newdata;
