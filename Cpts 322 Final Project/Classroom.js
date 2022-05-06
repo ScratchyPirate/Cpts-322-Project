@@ -101,4 +101,26 @@ class Classroom extends LinkedList, Course, Trend, Teacher {
         this.classrooomTrend.UpdateGraph(this.courseList, this.ClassroomTrend, this.name);
         return;
     }
+    Render () {
+        const handleCourseButton = (inputCourse) => {
+            this.AddCourse(inputCourse);
+        };
+        const handleRemoveButton = (cName) => {
+            this.RemoveCourse(cName);
+        };
+        return (
+            <div className='Classroom'>
+                <h1>${this.name}</h1>
+                <p>${this.Teacher}</p>
+                <button onClick={this.GetCourses()}>List of Courses</button>
+                <button onClick={this.GetClassroomTrend()}>Look at Classroom Trend</button>
+                <input type='text' id='course-input'></input>
+                <label for='course-input'>Enter New Course</label>
+                <button onClick={() => handleCourseButton()}>{inputCourse.anwserText}</button>
+                <input type='text' id='course-input'></input>
+                <label for='course-input'>Enter Course to Remove</label>
+                <button onClick={() => handleRemoveButton()}>{inputCourse.anwserText}</button>
+            </div>
+        );
+    }
 }
