@@ -1,6 +1,0 @@
-C:\Users\john_\source\repos\Cpts 322 Final Project\Cpts 322 Final Project\obj\Debug\Cpts 322 Final Project.njsproj.AssemblyReference.cache
-C:\Users\john_\source\repos\Cpts 322 Final Project\Cpts 322 Final Project\obj\Debug\Cpts 322 Final Project.njsproj.CoreCompileInputs.cache
-C:\Users\john_\source\repos\Cpts 322 Final Project\Cpts 322 Final Project\bin\Microsoft.NodejsTools.WebRole.dll
-C:\Users\john_\Source\Repos\Cpts-322-Project\Cpts 322 Final Project\obj\Debug\Cpts 322 Final Project.njsproj.AssemblyReference.cache
-C:\Users\john_\Source\Repos\Cpts-322-Project\Cpts 322 Final Project\obj\Debug\Cpts 322 Final Project.njsproj.CoreCompileInputs.cache
-C:\Users\john_\Source\Repos\Cpts-322-Project\Cpts 322 Final Project\bin\Microsoft.NodejsTools.WebRole.dll
