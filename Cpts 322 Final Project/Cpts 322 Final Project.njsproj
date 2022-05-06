@@ -1994,9 +1994,6 @@
     <Content Include="services\authHeader.js" />
     <Content Include="services\authService.js" />
     <Content Include="services\userService.js" />
-    <Content Include="Trend.js">
-      <SubType>Code</SubType>
-    </Content>
     <Content Include="ui\.gitignore" />
     <Content Include="ui\package-lock.json" />
     <Content Include="ui\package.json" />
@@ -2022,6 +2019,7 @@
     <Content Include="ui\src\pages\home.js" />
     <Content Include="ui\src\reportWebVitals.js" />
     <Content Include="ui\src\setupTests.js" />
+    <Content Include="ui\src\Trend.js" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Chart.js-3.7.1\" />
