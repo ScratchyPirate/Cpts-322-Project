@@ -1970,6 +1970,9 @@
     <Content Include="components\Register.js" />
     <Content Include="components\Student.js" />
     <Content Include="components\Teacher.js" />
+    <Content Include="components\Trend.js">
+      <SubType>Code</SubType>
+    </Content>
     <Content Include="Course.js">
       <SubType>Code</SubType>
     </Content>
@@ -2019,7 +2022,6 @@
     <Content Include="ui\src\pages\home.js" />
     <Content Include="ui\src\reportWebVitals.js" />
     <Content Include="ui\src\setupTests.js" />
-    <Content Include="ui\src\Trend.js" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Chart.js-3.7.1\" />
